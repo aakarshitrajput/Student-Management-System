@@ -1,0 +1,175 @@
+.container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 5px;
+}
+
+.logoContainer {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+}
+
+.logo {
+  color: #5a45f2;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 32px;
+}
+
+.logoFont {
+  color: black;
+  font-family: roboto;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.navMenuActive {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.MenuIcon {
+  font-size: 25px;
+}
+
+.navMenuInactive {
+  display: none;
+}
+
+.searchBox {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.navLinks {
+  width: 90%;
+}
+
+.navLinkStudents {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
+  font-family: roboto;
+  margin-top: 10px;
+  text-align: center;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-size: 18px;
+}
+
+.navLinkAbout {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
+  font-family: roboto;
+  margin-top: 10px;
+  text-align: center;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-size: 18px;
+}
+
+.navLinkAdmin {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: white;
+  font-family: roboto;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #5a45f2;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 10px;
+}
+
+.studentSearchContainer {
+  display: none;
+}
+
+.AboutAdminContainer {
+  display: none;
+}
+
+/* for desktop */
+@media screen and (min-width: 768px) {
+  .container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .desktopContainer {
+    display: flex;
+    align-items: center;
+  }
+  .MenuIcon {
+    display: none;
+  }
+  .studentSearchContainer {
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+
+  .AboutAdminContainer {
+    display: flex;
+    align-items: center;
+  }
+  .searchBox {
+    padding-top: 5px;
+    padding-bottom: 4px;
+    flex-shrink: inherit;
+    border-width: 1.5px;
+
+    text-align: start;
+    text-indent: 20px;
+    margin-left: 30px;
+    display: flex;
+
+    width: 75%;
+  }
+  .studentLink {
+    text-decoration: none;
+    color: black;
+    font-family: roboto;
+    font-size: 16;
+    margin-left: 10px;
+  }
+  .aboutLink {
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: roboto;
+    color: black;
+  }
+  .adminLink {
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: roboto;
+    color: white;
+    background-color: #5a45f2;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+  }
+}
