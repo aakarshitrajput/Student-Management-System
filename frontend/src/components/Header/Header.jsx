@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <div className="container">
       <div className="subContainer">
-        <Link className="logoContainer">
+        <Link to={"/"} className="logoContainer">
           <IoSchool className="logo" />
           <div className="logoFont">
             Student<span>&nbsp;</span>Management<span>&nbsp;</span>System
@@ -23,12 +23,18 @@ const Header = () => {
         </Link>
 
         <div className="studentSearchContainer">
-          <Link className="studentLink">Students</Link>
+          <Link className="studentLink" to={"/students"}>
+            Students
+          </Link>
           <input className="searchBox" placeholder="Search" />
         </div>
         <div className="AboutAdminContainer">
-          <Link className="aboutLink">About</Link>
-          <Link className="adminLink">Admin</Link>
+          <Link className="aboutLink" to={"/about"}>
+            About
+          </Link>
+          <Link to={"/login"} className="adminLink">
+            Admin
+          </Link>
         </div>
 
         <FiMenu className="MenuIcon" onClick={navToggel} />
@@ -37,9 +43,15 @@ const Header = () => {
       <div className={navActive ? "navMenuActive" : "navMenuInactive"}>
         <div className="navLinks">
           <input className="searchBox" placeholder="Search" />
-          <Link className="navLinkStudents">Students</Link>
-          <Link className="navLinkAbout">About</Link>
-          <Link className="navLinkAdmin">Admin</Link>
+          <Link className="navLinkStudents" to={"/students"}>
+            Students
+          </Link>
+          <Link className="navLinkAbout" to={"/about"}>
+            About
+          </Link>
+          <Link to={"/login"} className="navLinkAdmin">
+            Admin
+          </Link>
         </div>
       </div>
     </div>
