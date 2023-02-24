@@ -1,0 +1,58 @@
+.input {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.inputContainer {
+  display: "flex";
+  flex-direction: "column";
+}
+
+.label {
+  font-size: 18px;
+  font-family: roboto;
+  margin-top: 10px;
+}
+
+.addPhotoLabel {
+  font-size: 18px;
+  font-family: roboto;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.browseButton {
+  background-color: #c8c8c8;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+  border-width: 0;
+  font-family: "roboto";
+  font-size: 18px;
+  color: black;
+}
+
+.submitButton {
+  background-color: #5a45f2;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  border-width: 0;
+  font-family: "roboto";
+  font-size: 18px;
+  color: white;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+}
