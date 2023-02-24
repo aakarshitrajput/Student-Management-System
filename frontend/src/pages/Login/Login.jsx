@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import "./Login.css";
+import axios from "axios";
+import { Link, Navigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
   const handleUsername = (ev) => {
     setUsername(ev.target.value);
   };
@@ -13,11 +16,20 @@ const Login = () => {
     setPassword(ev.target.value);
   };
 
-  const formSubmit = (ev) => {
+  const formSubmit = async (ev) => {
     ev.preventDefault();
-    console.log(username);
-    console.log(password);
+    try {
+      await axios.post("/admin", { username, password });
+      alert("login successfull");
+      setRedirect(true);
+    } catch (error) {
+      alert(error);
+    }
   };
+
+  if (redirect) {
+    return <Navigate to={"/"} />;
+  }
 
   return (
     <div>
