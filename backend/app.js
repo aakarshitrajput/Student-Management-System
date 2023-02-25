@@ -72,7 +72,9 @@ app.post("/create", async (req, res) => {
       res.json(error);
     }
   } else {
-    res.json("You have to be logged in as Admin to Create a Student");
+    res
+      .status(422)
+      .json("You have to be logged in as Admin to Create a Student");
   }
 });
 

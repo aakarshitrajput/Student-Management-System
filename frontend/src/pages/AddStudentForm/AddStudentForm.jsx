@@ -32,7 +32,7 @@ const AddStudentForm = () => {
     setYear(ev.target.value);
   };
 
-  const submitHandler = (ev) => {
+  const submitHandler = async (ev) => {
     ev.preventDefault();
     const data = {
       name,
@@ -42,10 +42,12 @@ const AddStudentForm = () => {
       year,
       photo,
     };
-    console.log(data);
-    axios.post("/create", data).then((res) => {
-      console.log(res);
-    });
+
+    try {
+      await axios.post("/create", data);
+    } catch (error) {
+      alert("You have to be logged in as Admin to Create a Student");
+    }
   };
 
   function uploadPhoto(ev) {
@@ -69,6 +71,7 @@ const AddStudentForm = () => {
   return (
     <div>
       <Header />
+
       <div
         style={{
           marginTop: 30,
