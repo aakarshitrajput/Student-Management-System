@@ -90,7 +90,7 @@ app.get("/students", async (req, res) => {
   res.json(await Student.find());
 });
 
-app.post("/search", async (req, res) => {
+app.post("/search-name", async (req, res) => {
   const Search = req.body[0];
   // res.json(Search);
   res.json(await Student.find({ name: new RegExp(Search, "i") }));

@@ -14,7 +14,7 @@ const Home = () => {
   const search = async (e) => {
     setSearch(e.target.value);
     console.log([e.target.value]);
-    axios.post("/search", [e.target.value]).then(({ data }) => {
+    axios.post("/search-name", [e.target.value]).then(({ data }) => {
       console.log(data);
       setSearchedStudent(data);
       console.log(SearchedStudent);
