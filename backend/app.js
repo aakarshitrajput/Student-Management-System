@@ -96,6 +96,12 @@ app.post("/search-name", async (req, res) => {
   res.json(await Student.find({ name: new RegExp(Search, "i") }));
 });
 
+app.post("/search-registration", async (req, res) => {
+  let Search = req.body[0];
+  Search = Number(Search);
+  res.json(await Student.findOne({ registration: Search }));
+});
+
 app.use("/Photos", express.static(__dirname + "/Photos"));
 const photosMiddleware = multer({ dest: "Photos/" });
 app.post("/uploadphoto", photosMiddleware.single("photos"), (req, res) => {
