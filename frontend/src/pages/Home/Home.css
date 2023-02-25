@@ -17,7 +17,8 @@
 .search {
   font-family: roboto;
   color: balck;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 36px;
+  letter-spacing: 1px;
+  font-weight: 400;
   margin-bottom: 10px;
 }

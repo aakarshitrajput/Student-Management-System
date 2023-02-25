@@ -1,12 +1,25 @@
 import React, { useState } from "react";
 import { IoSchool } from "react-icons/io5";
 import { FiMenu } from "react-icons/fi";
-
+import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import SearchStudent from "./SearchStudent";
 
 const Header = () => {
   const [navActive, setNavActive] = useState(false);
+  const [searchedStudent, setSearchedStudent] = useState([]);
+  const [Search, setSearch] = useState();
+
+  const searchHandler = async (e) => {
+    setSearch(e.target.value);
+    console.log(e.target.value);
+    axios.post("/search-registration", [e.target.value]).then(({ data }) => {
+      console.log(data);
+      setSearchedStudent(data);
+      console.log(searchedStudent);
+    });
+  };
 
   const navToggel = () => {
     setNavActive(!navActive);
@@ -26,7 +39,14 @@ const Header = () => {
           <Link className="studentLink" to={"/students"}>
             Students
           </Link>
-          <input className="searchBox" placeholder="Search" />
+
+          <input
+            className="searchBoxTop"
+            placeholder="Registration Number"
+            type="number"
+            onChange={searchHandler}
+            value={Search}
+          />
         </div>
         <div className="AboutAdminContainer">
           <Link className="aboutLink" to={"/about"}>
@@ -42,7 +62,13 @@ const Header = () => {
 
       <div className={navActive ? "navMenuActive" : "navMenuInactive"}>
         <div className="navLinks">
-          <input className="searchBox" placeholder="Search" />
+          <input
+            className="searchBoxTop"
+            placeholder="Registration Number"
+            type="number"
+            onChange={searchHandler}
+            value={Search}
+          />
           <Link className="navLinkStudents" to={"/students"}>
             Students
           </Link>
@@ -54,6 +80,8 @@ const Header = () => {
           </Link>
         </div>
       </div>
+      {/* <SearchStudent {...searchedStudent} /> */}
+      {searchedStudent ? <SearchStudent {...searchedStudent} /> : <></>}
     </div>
   );
 };

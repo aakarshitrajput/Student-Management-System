@@ -37,7 +37,7 @@ const Home = () => {
         <input
           type="text"
           className="searchBox"
-          placeholder="Name or Registration number"
+          placeholder="Student Name"
           onChange={search}
           value={Search}
         />

@@ -1,0 +1,33 @@
+.studentContainer {
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.allPropertiesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.studentProperties {
+  display: flex;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.photoContainer {
+  margin-bottom: 20px;
+}
+
+.nameRegContainer {
+  font-family: roboto;
+}
+
+.courseYearContainer {
+  font-family: roboto;
+}
