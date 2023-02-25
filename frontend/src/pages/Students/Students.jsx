@@ -25,7 +25,7 @@ const Students = () => {
         All Students
       </div>
 
-      <div style={{ marginRight: 20, marginLeft: 20 }}>
+      <div style={{ marginRight: 20, marginLeft: 20, marginTop: 20 }}>
         {allStudents.map((student) => (
           <Student {...student} />
         ))}

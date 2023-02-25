@@ -46,7 +46,7 @@ const Login = () => {
             <div className="emailContainer">
               <div className="email">Email</div>
               <input
-                className="input"
+                className="inputup"
                 placeholder="admin@email.com"
                 type="text"
                 value={username}
@@ -56,7 +56,7 @@ const Login = () => {
             <div className="passwordContainer">
               <div className="password">Password</div>
               <input
-                className="input"
+                className="inputup"
                 type="password"
                 value={password}
                 onChange={handlePassword}

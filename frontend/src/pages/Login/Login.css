@@ -4,7 +4,6 @@
   align-items: center;
   margin-top: 50px;
   width: 300px;
-  justify-content: center;
 }
 
 .login {
@@ -31,7 +30,7 @@
   font-family: roboto;
 }
 
-.input {
+.inputup {
   padding-top: 10px;
   padding-bottom: 6px;
   padding-left: 10px;
@@ -56,22 +55,22 @@
   color: white;
   font-family: roboto;
   border-radius: 10px;
-  width: 270px;
+  width: 90%;
   border-width: 0;
   cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
   .loginContainer {
-    width: 500px;
+    width: 350px;
     margin-top: 100px;
   }
 
-  .input {
-    width: 300px;
+  .inputup {
+    width: 325px;
   }
   .loginButton {
-    width: 320px;
+    width: 100%;
   }
   .login {
     font-size: 36px;

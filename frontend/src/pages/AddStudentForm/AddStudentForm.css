@@ -56,3 +56,23 @@
   justify-content: center;
   margin-left: 10px;
 }
+
+.hidden {
+  display: none;
+}
+
+.inputup {
+  padding-top: 10px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-width: 1.5px;
+  background: white;
+  font-family: roboto;
+  font-size: 17px;
+  text-indent: 5px;
+}

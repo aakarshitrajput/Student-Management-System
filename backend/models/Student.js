@@ -7,7 +7,7 @@ const StudentSchema = new Schema({
   course: String,
   branch: String,
   year: Number,
-  photo: String,
+  photo: Object,
 });
 
 const StudentModel = mongoose.model("Student", StudentSchema);

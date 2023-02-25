@@ -9,10 +9,11 @@ const AddStudentForm = () => {
   const [course, setCourse] = useState("");
   const [branch, setBranch] = useState("");
   const [year, setYear] = useState("");
-  const [photo, setPhoto] = useState("");
+  const [photo, setPhoto] = useState([]);
 
   const nameHandler = (ev) => {
     setName(ev.target.value);
+    console.log(name);
   };
 
   const registrationHandler = (ev) => {
@@ -31,10 +32,6 @@ const AddStudentForm = () => {
     setYear(ev.target.value);
   };
 
-  const photoHandler = (ev) => {
-    setPhoto(ev.target.value);
-  };
-
   const submitHandler = (ev) => {
     ev.preventDefault();
     const data = {
@@ -50,6 +47,24 @@ const AddStudentForm = () => {
       console.log(res);
     });
   };
+
+  function uploadPhoto(ev) {
+    const files = ev.target.files;
+    const data = new FormData();
+
+    for (let i = 0; i < files.length; i++) {
+      data.append("photos", files[i]);
+    }
+    axios
+      .post("/uploadphoto", data, {
+        headers: { "Content-type": "multipart/form-data" },
+      })
+      .then((response) => {
+        const { data } = response;
+        console.log({ data });
+        setPhoto({ data });
+      });
+  }
 
   return (
     <div>
@@ -76,7 +91,7 @@ const AddStudentForm = () => {
             <label className="label">Full Name</label>
             <input
               type="text"
-              className="input"
+              className="inputup"
               value={name}
               onChange={nameHandler}
             />
@@ -87,7 +102,7 @@ const AddStudentForm = () => {
             <label className="label">Registration Number</label>
             <input
               type="number"
-              className="input"
+              className="inputup"
               value={registration}
               onChange={registrationHandler}
             />
@@ -96,7 +111,7 @@ const AddStudentForm = () => {
             <label className="label">Course</label>
             <input
               type="text"
-              className="input"
+              className="inputup"
               value={course}
               onChange={courseHandler}
             />
@@ -105,7 +120,7 @@ const AddStudentForm = () => {
             <label className="label">Branch</label>
             <input
               type="text"
-              className="input"
+              className="inputup"
               value={branch}
               onChange={branchHandler}
             />
@@ -114,7 +129,7 @@ const AddStudentForm = () => {
             <label className="label">Year</label>
             <input
               type="number"
-              className="input"
+              className="inputup"
               value={year}
               onChange={yearHandler}
             />
@@ -122,7 +137,7 @@ const AddStudentForm = () => {
           <div
             style={{
               display: "flex",
-              flexDirection: "row",
+              flexDirection: "column",
               marginTop: 20,
               alignItems: "center",
               marginBottom: 20,
@@ -130,17 +145,31 @@ const AddStudentForm = () => {
             }}
           >
             <label
-              style={{ fontFamily: "roboto", marginRight: 10, fontSize: 18 }}
+              style={{
+                fontFamily: "roboto",
+                marginRight: 10,
+                fontSize: 18,
+                cursor: "pointer",
+              }}
             >
+              <input type="file" className="hidden" onChange={uploadPhoto} />
               Add Photo
             </label>
-            <button className="browseButton">Browse</button>
+            {photo.data === undefined ? null : (
+              <img
+                src={"http://127.0.0.1:4000/" + photo.data}
+                style={{
+                  height: 250,
+                  width: 250,
+                  objectFit: "cover",
+                  borderRadius: "50%",
+                }}
+              />
+            )}
           </div>
-          <div>
-            <button className="submitButton" onClick={submitHandler}>
-              Add Student
-            </button>
-          </div>
+          <button className="submitButton" onClick={submitHandler}>
+            Add Student
+          </button>
         </form>
       </div>
     </div>

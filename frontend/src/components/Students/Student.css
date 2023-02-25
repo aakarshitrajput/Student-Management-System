@@ -1,0 +1,58 @@
+.studentContainer {
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.allPropertiesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.studentProperties {
+  display: flex;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.photoContainer {
+  margin-bottom: 20px;
+}
+
+.nameRegContainer {
+  font-family: roboto;
+}
+
+.courseYearContainer {
+  font-family: roboto;
+}
+
+@media screen and (min-width: 768px) {
+  .studentContainer {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .allPropertiesContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .studentProperties {
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+
+  .courseYearContainer {
+    margin-left: 40px;
+  }
+
+  .studentProperties {
+    margin-bottom: 20px;
+  }
+}
