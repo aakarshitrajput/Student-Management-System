@@ -8,7 +8,7 @@ import SearchStudent from "./SearchStudent";
 
 const Header = () => {
   const [navActive, setNavActive] = useState(false);
-  const [searchedStudent, setSearchedStudent] = useState([]);
+  const [searchedStudent, setSearchedStudent] = useState(null);
   const [Search, setSearch] = useState();
 
   const searchHandler = async (e) => {
@@ -80,8 +80,11 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      {/* <SearchStudent {...searchedStudent} /> */}
-      {searchedStudent ? <SearchStudent {...searchedStudent} /> : <></>}
+      {searchedStudent === null ? (
+        <></>
+      ) : (
+        <SearchStudent {...searchedStudent} />
+      )}
     </div>
   );
 };

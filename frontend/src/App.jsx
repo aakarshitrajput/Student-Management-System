@@ -3,7 +3,7 @@ import Home from "./pages/Home/Home";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Students from "./pages/Students/Students";
-import About from "./pages/About";
+import About from "./pages/About/About";
 import axios from "axios";
 import AddStudentForm from "./pages/AddStudentForm/AddStudentForm";
 
