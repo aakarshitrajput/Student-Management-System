@@ -27,34 +27,60 @@ app.get("/test", (req, res) => {
   res.json("this is a test");
 });
 
-// app.post("/admin", (req, res) => {
-//   const { username, password } = req.body;
-//   try {
-//     if (username === "admin" && password === "admin") {
-//       const passOK = true;
-//       if (passOK) {
-//         jwt.sign(
-//           { username: username, password: password },
-//           jwtSecret,
-//           {},
-//           (err, token) => {
-//             if (err) throw err;
-//             res.cookie("token", token).json("admin");
-//           }
-//         );
-//       }
-//     } else {
-//       res.status(422).json("invalid credentials");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
+// login admin
+app.post("/admin", (req, res) => {
+  const { username, password } = req.body;
+  try {
+    if (username === "admin" && password === "admin") {
+      const passOK = true;
+      if (passOK) {
+        jwt.sign(
+          { username: username, password: password },
+          jwtSecret,
+          {},
+          (err, token) => {
+            if (err) throw err;
+            res.cookie("token", token).json("admin");
+          }
+        );
+      }
+    } else {
+      res.status(422).json("invalid credentials");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
 
-// app.post("/create", async (req, res) => {
+//create student
+app.post("/create", async (req, res) => {
+  const { token } = req.cookies;
+  const { name, registration, course, branch, year, photo } = req.body;
+  const verifyUser = token ? jwt.verify(token, jwtSecret) : [];
+  if (verifyUser.username === "admin" && verifyUser.password === "admin") {
+    try {
+      const studentDoc = await Student.create({
+        name,
+        registration,
+        course,
+        branch,
+        year,
+        photo,
+      });
+      res.json(studentDoc);
+    } catch (error) {
+      res.json(error);
+    }
+  } else {
+    res.json("You have to be logged in as Admin to Create a Student");
+  }
+});
+
+// app.post("/create", (req, res) => {
 //   const { token } = req.cookies;
 //   const { name, registration, course, branch, year, photo } = req.body;
-//   try {
+//   jwt.verify(token, jwtSecret, {}, async (err, { admin }) => {
+//     if (err) throw err;
 //     const studentDoc = await Student.create({
 //       name,
 //       registration,
@@ -64,27 +90,8 @@ app.get("/test", (req, res) => {
 //       photo,
 //     });
 //     res.json(studentDoc);
-//   } catch (error) {
-//     res.json(error);
-//   }
+//   });
 // });
-
-app.post("/create", (req, res) => {
-  const { token } = req.cookies;
-  const { name, registration, course, branch, year, photo } = req.body;
-  jwt.verify(token, jwtSecret, {}, async (err, { admin }) => {
-    if (err) throw err;
-    const studentDoc = await Student.create({
-      name,
-      registration,
-      course,
-      branch,
-      year,
-      photo,
-    });
-    res.json(studentDoc);
-  });
-});
 
 app.get("/students", async (req, res) => {
   res.json(await Student.find());

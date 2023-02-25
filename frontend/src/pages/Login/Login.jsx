@@ -28,7 +28,7 @@ const Login = () => {
   };
 
   if (redirect) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/add-student"} />;
   }
 
   return (
@@ -46,7 +46,7 @@ const Login = () => {
             <div className="emailContainer">
               <div className="email">Email</div>
               <input
-                className="inputup"
+                className="emailPassword"
                 placeholder="admin@email.com"
                 type="text"
                 value={username}
@@ -56,7 +56,7 @@ const Login = () => {
             <div className="passwordContainer">
               <div className="password">Password</div>
               <input
-                className="inputup"
+                className="emailPassword"
                 type="password"
                 value={password}
                 onChange={handlePassword}

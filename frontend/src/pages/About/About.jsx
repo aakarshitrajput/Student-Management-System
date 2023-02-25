@@ -25,6 +25,7 @@ const About = () => {
           marginRight: 60,
           marginLeft: 60,
           letterSpacing: 1,
+          lineHeight: 1.5,
         }}
       >
         This is a student management system. It is a full stack web application

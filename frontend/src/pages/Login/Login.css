@@ -30,19 +30,20 @@
   font-family: roboto;
 }
 
-.inputup {
+.emailPassword {
   padding-top: 10px;
   padding-bottom: 6px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 15px;
-  width: 250px;
+  width: 200px;
   margin-top: 5px;
   border-width: 1.5px;
   background: white;
   font-family: roboto;
   font-size: 17px;
   text-indent: 5px;
+  margin-left: -10px;
 }
 
 .loginButton {
@@ -55,9 +56,10 @@
   color: white;
   font-family: roboto;
   border-radius: 10px;
-  width: 90%;
+  width: 80%;
   border-width: 0;
   cursor: pointer;
+  margin-left: -10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -66,8 +68,8 @@
     margin-top: 100px;
   }
 
-  .inputup {
-    width: 325px;
+  .emailPassword {
+    width: 320px;
   }
   .loginButton {
     width: 100%;
