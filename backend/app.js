@@ -15,8 +15,6 @@ const originUrl = process.env.ORIGIN_URL;
 const app = express();
 
 mongoose.connect(process.env.MONGODB_URL, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
   useCreateIndex: true, //make this true
   autoIndex: true, //make this also true
 });
