@@ -2,11 +2,24 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const StudentSchema = new Schema({
-  name: String,
-  registration: { type: Number, unique: true },
-  course: String,
+  name: {
+    type: String,
+    required: [true, "Name is required."],
+  },
+  registration: {
+    type: Number,
+    unique: true,
+    required: [true, "Registration Number is required."],
+  },
+  course: {
+    type: String,
+    required: [true, "Course is required."],
+  },
   branch: String,
-  year: Number,
+  year: {
+    type: Number,
+    required: [true, "Year Number is required."],
+  },
   photo: Object,
 });
 
