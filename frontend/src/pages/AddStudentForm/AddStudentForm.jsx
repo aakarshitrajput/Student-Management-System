@@ -46,7 +46,15 @@ const AddStudentForm = () => {
     try {
       await axios
         .post("/create", data)
-        .then(alert("Student Created Successfully"));
+        .then(
+          alert("Student Created Successfully") &&
+            setName(" ") &&
+            setRegistration(" ") &&
+            setCourse(" ") &&
+            setBranch(" ") &&
+            setYear(" ") &&
+            window.location.reload(false)
+        );
     } catch (error) {
       alert("You have to be logged in as Admin to Create a Student");
     }
