@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: "https://student-management-system-backend.onrender.com",
+    origin: process.env.ORIGINURL,
   })
 );
 
