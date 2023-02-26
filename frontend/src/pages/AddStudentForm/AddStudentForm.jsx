@@ -33,7 +33,6 @@ const AddStudentForm = () => {
   };
 
   const submitHandler = async (ev) => {
-    ev.preventDefault();
     const data = {
       name,
       registration,
