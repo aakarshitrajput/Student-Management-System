@@ -7,7 +7,7 @@ import About from "./pages/About/About";
 import axios from "axios";
 import AddStudentForm from "./pages/AddStudentForm/AddStudentForm";
 
-axios.defaults.baseURL = "http://127.0.0.1:4000";
+axios.defaults.baseURL = "http://65.2.167.64";
 axios.defaults.withCredentials = true;
 
 function App() {

@@ -19,7 +19,12 @@ mongoose.connect(process.env.MONGODB_URL);
 //middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: "http://127.0.0.1:4000" }));
+
+// for production
+// app.use(cors({ credentials: true, origin: "http://127.0.0.1:4000" }));
+
+// for development
+app.use(cors({ credentials: true, origin: "http://65.2.167.64" }));
 
 // listen for requests
 app.listen(4000);
