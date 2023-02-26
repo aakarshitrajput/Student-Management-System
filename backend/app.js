@@ -29,17 +29,17 @@ app.use(cors({ credentials: true, origin: "http://65.2.167.64" }));
 // listen for requests
 app.listen(4000);
 
-app.use(express.static(path.join(buildPath)));
-app.get("/", function (req, res) {
-  res.sendFile(
-    path.join(__dirname, "../frontend/dist/index.html"),
-    function (err) {
-      if (err) {
-        res.status(500).send(err);
-      }
-    }
-  );
-});
+// app.use(express.static(path.join(buildPath)));
+// app.get("/", function (req, res) {
+//   res.sendFile(
+//     path.join(__dirname, "../frontend/dist/index.html"),
+//     function (err) {
+//       if (err) {
+//         res.status(500).send(err);
+//       }
+//     }
+//   );
+// });
 
 app.get("/test", (req, res) => {
   res.json("this is a test");
