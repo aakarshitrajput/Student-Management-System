@@ -53,7 +53,7 @@ const Header = () => {
             About
           </Link>
           <Link to={"/login"} className="adminLink">
-            Admin
+            Login
           </Link>
         </div>
 
