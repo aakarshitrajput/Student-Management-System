@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const StudentSchema = new Schema({
   name: String,
-  registration: { type: Number },
+  registration: { type: Number, unique: true },
   course: String,
   branch: String,
   year: Number,
