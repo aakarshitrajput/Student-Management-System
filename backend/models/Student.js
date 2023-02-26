@@ -8,7 +8,7 @@ const StudentSchema = new Schema({
   },
   registration: {
     type: Number,
-    unique: true,
+    unique: [true, "Registration Number already exists."],
     required: [true, "Registration Number is required."],
   },
   course: {
