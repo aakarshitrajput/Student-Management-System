@@ -5,6 +5,7 @@ const StudentSchema = new Schema({
   name: {
     type: String,
     required: [true, "Name is required."],
+    unique: true,
   },
   registration: {
     type: Number,
