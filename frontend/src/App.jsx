@@ -8,11 +8,11 @@ import axios from "axios";
 import AddStudentForm from "./pages/AddStudentForm/AddStudentForm";
 
 // for production
-// axios.defaults.baseURL =
-//   "https://student-management-system-backend.onrender.com/";
+axios.defaults.baseURL =
+  "https://student-management-system-backend.onrender.com/";
 
 // for development
-axios.defaults.baseURL = "http://127.0.0.1:4000";
+// axios.defaults.baseURL = "http://127.0.0.1:4000";
 
 axios.defaults.withCredentials = true;
 
