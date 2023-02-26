@@ -9,7 +9,6 @@ const { default: mongoose } = require("mongoose");
 const path = require("path");
 const multer = require("multer");
 const fs = require("fs");
-const buildPath = path.join(__dirname, "../frontend/dist");
 
 // express app
 const app = express();
@@ -20,26 +19,19 @@ mongoose.connect(process.env.MONGODB_URL);
 app.use(express.json());
 app.use(cookieParser());
 
-// for production
+// for development
 // app.use(cors({ credentials: true, origin: "http://127.0.0.1:4000" }));
 
-// for development
-app.use(cors({ credentials: true, origin: "http://65.2.167.64" }));
+// for production
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://student-management-system8582.netlify.app/",
+  })
+);
 
 // listen for requests
 app.listen(4000);
-
-// app.use(express.static(path.join(buildPath)));
-// app.get("/", function (req, res) {
-//   res.sendFile(
-//     path.join(__dirname, "../frontend/dist/index.html"),
-//     function (err) {
-//       if (err) {
-//         res.status(500).send(err);
-//       }
-//     }
-//   );
-// });
 
 app.get("/test", (req, res) => {
   res.json("this is a test");
@@ -112,8 +104,8 @@ app.post("/search-registration", async (req, res) => {
   res.json(await Student.findOne({ registration: Search }));
 });
 
-app.use(express.static(__dirname + "/Photos"));
-const photosMiddleware = multer({ dest: "Photos/" });
+app.use("/photos", express.static(__dirname + "/photos"));
+const photosMiddleware = multer({ dest: "photos/" });
 app.post("/uploadphoto", photosMiddleware.single("photos"), (req, res) => {
   const path = req.file.path;
   const originalname = req.file.originalname;
