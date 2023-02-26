@@ -7,7 +7,8 @@ import About from "./pages/About/About";
 import axios from "axios";
 import AddStudentForm from "./pages/AddStudentForm/AddStudentForm";
 
-axios.defaults.baseURL = "http://65.2.167.64";
+axios.defaults.baseURL =
+  "https://student-management-system-backend.onrender.com";
 axios.defaults.withCredentials = true;
 
 function App() {
