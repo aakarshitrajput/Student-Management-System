@@ -19,7 +19,14 @@ const Login = () => {
   const formSubmit = async (ev) => {
     ev.preventDefault();
     try {
-      await axios.post("/admin", { username, password });
+      await axios.post(
+        "/admin",
+        { username, password },
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
       alert("login successfull");
       setRedirect(true);
     } catch (error) {
