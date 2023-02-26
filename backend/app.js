@@ -9,6 +9,7 @@ const { default: mongoose } = require("mongoose");
 const path = require("path");
 const multer = require("multer");
 const fs = require("fs");
+const originUrl = process.env.ORIGIN_URL;
 
 // express app
 const app = express();
@@ -23,12 +24,7 @@ app.use(cookieParser());
 // app.use(cors({ credentials: true, origin: "http://127.0.0.1:4000" }));
 
 // for production
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.ORIGINURL,
-  })
-);
+app.use(cors({ credentials: true, origin: originUrl }));
 
 // listen for requests
 app.listen(4000);
