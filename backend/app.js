@@ -9,6 +9,7 @@ const { default: mongoose } = require("mongoose");
 const path = require("path");
 const multer = require("multer");
 const fs = require("fs");
+const buildPath = path.join(__dirname, "../frontend/dist");
 
 // express app
 const app = express();
@@ -18,10 +19,22 @@ mongoose.connect(process.env.MONGODB_URL);
 //middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: "http://127.0.0.1:5173" }));
+app.use(cors({ credentials: true, origin: "http://127.0.0.1:4000" }));
 
 // listen for requests
 app.listen(4000);
+
+app.use(express.static(path.join(buildPath)));
+app.get("/*", function (req, res) {
+  res.sendFile(
+    path.join(__dirname, "../frontend/dist/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  );
+});
 
 app.get("/test", (req, res) => {
   res.json("this is a test");
@@ -77,23 +90,6 @@ app.post("/create", async (req, res) => {
       .json("You have to be logged in as Admin to Create a Student");
   }
 });
-
-// app.post("/create", (req, res) => {
-//   const { token } = req.cookies;
-//   const { name, registration, course, branch, year, photo } = req.body;
-//   jwt.verify(token, jwtSecret, {}, async (err, { admin }) => {
-//     if (err) throw err;
-//     const studentDoc = await Student.create({
-//       name,
-//       registration,
-//       course,
-//       branch,
-//       year,
-//       photo,
-//     });
-//     res.json(studentDoc);
-//   });
-// });
 
 app.get("/students", async (req, res) => {
   res.json(await Student.find());
