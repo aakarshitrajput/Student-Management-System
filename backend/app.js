@@ -14,10 +14,7 @@ const originUrl = process.env.ORIGIN_URL;
 // express app
 const app = express();
 
-mongoose.connect(process.env.MONGODB_URL, {
-  useCreateIndex: true, //make this true
-  autoIndex: true, //make this also true
-});
+mongoose.connect(process.env.MONGODB_URL);
 
 //middleware
 app.use(express.json());
