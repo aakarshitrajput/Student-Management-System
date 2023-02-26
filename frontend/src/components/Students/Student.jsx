@@ -35,7 +35,7 @@ const Student = (data) => {
             />
           ) : (
             <img
-              src={"http://127.0.0.1:4000/" + data.photo.data}
+              src={"http://65.2.167.64/" + data.photo.data}
               alt="Profile Photo"
               style={{
                 height: 150,

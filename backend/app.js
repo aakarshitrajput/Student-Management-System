@@ -30,7 +30,7 @@ app.use(cors({ credentials: true, origin: "http://65.2.167.64" }));
 app.listen(4000);
 
 app.use(express.static(path.join(buildPath)));
-app.get("/*", function (req, res) {
+app.get("/", function (req, res) {
   res.sendFile(
     path.join(__dirname, "../frontend/dist/index.html"),
     function (err) {
