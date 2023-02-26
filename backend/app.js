@@ -33,6 +33,10 @@ app.get("/test", (req, res) => {
   res.json("this is a test");
 });
 
+app.get("/base", (req, res) => {
+  res.json(originUrl);
+});
+
 // login admin
 app.post("/admin", (req, res) => {
   const { username, password } = req.body;
