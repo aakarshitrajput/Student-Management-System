@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: "https://student-management-system8582.netlify.app",
+    origin: "https://student-management-system-backend.onrender.com/",
   })
 );
 
