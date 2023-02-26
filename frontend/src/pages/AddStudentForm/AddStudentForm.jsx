@@ -33,6 +33,7 @@ const AddStudentForm = () => {
   };
 
   const submitHandler = async (ev) => {
+    ev.preventDefault();
     const data = {
       name,
       registration,
@@ -43,7 +44,9 @@ const AddStudentForm = () => {
     };
 
     try {
-      await axios.post("/create", data);
+      await axios
+        .post("/create", data)
+        .then(alert("Student Created Successfully"));
     } catch (error) {
       alert("You have to be logged in as Admin to Create a Student");
     }
