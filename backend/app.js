@@ -10,6 +10,8 @@ const path = require("path");
 const multer = require("multer");
 const fs = require("fs");
 const originUrl = process.env.ORIGIN_URL;
+const adminUser = process.env.ADMIN_USER;
+const adminPass = process.env.ADMIN_PASS;
 
 // express app
 const app = express();
@@ -41,7 +43,7 @@ app.get("/base", (req, res) => {
 app.post("/admin", (req, res) => {
   const { username, password } = req.body;
   try {
-    if (username === "admin" && password === "admin") {
+    if (username === adminUser && password === adminPass) {
       const passOK = true;
       if (passOK) {
         jwt.sign(
