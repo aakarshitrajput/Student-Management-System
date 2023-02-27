@@ -52,6 +52,7 @@ const AddStudentForm = () => {
       setCourse(" ");
       setBranch(" ");
       setYear(" ");
+      setPhoto([]);
       // window.location.reload(false);
     } catch (error) {
       alert("You have to be logged in as Admin to Create a Student");
