@@ -36,14 +36,15 @@ app.get("/test", (req, res) => {
 });
 
 app.get("/base", (req, res) => {
-  res.json(originUrl, adminUser, adminPass);
+  const base = { originUrl, adminUser, adminPass };
+  res.json(base);
 });
 
 // login admin
 app.post("/admin", (req, res) => {
   const { username, password } = req.body;
   try {
-    if (username === "admin" && password === "admin") {
+    if (username === adminUser && password === adminPass) {
       const passOK = true;
       if (passOK) {
         jwt.sign(
