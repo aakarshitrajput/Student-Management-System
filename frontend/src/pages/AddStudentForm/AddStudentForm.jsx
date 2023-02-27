@@ -47,11 +47,11 @@ const AddStudentForm = () => {
       await axios
         .post("/create", data)
         .then(alert("Student Created Successfully"));
-      setName(" ");
-      setRegistration(" ");
-      setCourse(" ");
-      setBranch(" ");
-      setYear(" ");
+      setName("");
+      setRegistration("");
+      setCourse("");
+      setBranch("");
+      setYear("");
       setPhoto([]);
       // window.location.reload(false);
     } catch (error) {
