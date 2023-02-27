@@ -77,7 +77,7 @@ app.post("/create", async (req, res) => {
   const { token } = req.cookies;
   const { name, registration, course, branch, year, photo } = req.body;
   const verifyUser = token ? jwt.verify(token, jwtSecret) : [];
-  if (verifyUser.username === "admin" && verifyUser.password === "admin") {
+  if (verifyUser.username === adminUser && verifyUser.password === adminPass) {
     try {
       const studentDoc = await Student.create({
         name,
