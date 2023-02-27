@@ -43,7 +43,7 @@ app.get("/base", (req, res) => {
 app.post("/admin", (req, res) => {
   const { username, password } = req.body;
   try {
-    if (username === adminUser && password === adminPass) {
+    if (username == adminUser && password == adminPass) {
       const passOK = true;
       if (passOK) {
         jwt.sign(
