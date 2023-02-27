@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/Header";
+import "./About.css";
 
 const About = () => {
   return (
@@ -32,6 +33,16 @@ const About = () => {
         built with React, Node, Express, and MongoDB. It is a simple application
         that allows you to add and delete students. It also allows you to search
         for students by their name and registration number.
+      </div>
+      <div style={{ display: "flex", justifyContent: "center", marginTop: 40 }}>
+        <button className="githubButton">
+          <a
+            className="githubLink"
+            href="https://github.com/aakarshitrajput/Student-Management-System.git"
+          >
+            Github Link
+          </a>
+        </button>
       </div>
     </div>
   );
