@@ -36,7 +36,7 @@ app.get("/test", (req, res) => {
 });
 
 app.get("/base", (req, res) => {
-  const base = { originUrl, adminUser, adminPass };
+  const base = { originUrl };
   res.json(base);
 });
 
