@@ -18,66 +18,39 @@ const Student = (data) => {
       window.removeEventListener("resize", handleWindowResize);
     };
   });
-  return (
-    <div style={{}}>
-      <div className="studentContainer">
-        <div className="photoContainer">
-          {data.photo.data === undefined ? (
-            <img
-              src="https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"
-              alt="Profile Photo"
-              style={{
-                height: 150,
-                width: 150,
-                objectFit: "cover",
-                zoom: 1.3,
-              }}
-            />
-          ) : (
-            <img
-              src={"http://127.0.0.1:4000/" + data.photo.data}
-              alt="Profile Photo"
-              style={{
-                height: 150,
-                width: 150,
-                objectFit: "cover",
-                borderRadius: "50%",
-              }}
-            />
-          )}
-        </div>
 
-        <div className="allPropertiesContainer">
-          <div className="nameRegContainer">
-            <div className="studentProperties">
-              <div>Name : </div>
-              <div style={{ marginLeft: 5 }}> {data.name}</div>
-            </div>
-            <div className="studentProperties">
-              <div>Registration Number : </div>
-              <div style={{ marginLeft: 5 }}> {data.registration}</div>
-            </div>
-          </div>
-          <div className="courseYearContainer">
-            <div className="studentProperties">
-              <div>Course : </div>
-              <div style={{ marginLeft: 5 }}>{data.branch}</div>
-            </div>
-            <div className="studentProperties">
-              <div>Year : </div>
-              <div style={{ marginLeft: 5 }}>{data.year}</div>
-            </div>
-          </div>
+  return (
+    <div className="studentCard">
+      <div className="photoContainer">
+        {data.photo?.data === undefined ? (
+          <img
+            src="https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"
+            alt="Profile Photo"
+            className="profilePhoto"
+          />
+        ) : (
+          <img
+            src={`http://127.0.0.1:4000/${data.photo.data}`}
+            alt="Profile Photo"
+            className="profilePhoto"
+          />
+        )}
+      </div>
+
+      <div className="detailsContainer">
+        <div className="detailItem">
+          <strong>Name:</strong> <span>{data.name}</span>
+        </div>
+        <div className="detailItem">
+          <strong>Registration Number:</strong> <span>{data.registration}</span>
+        </div>
+        <div className="detailItem">
+          <strong>Course:</strong> <span>{data.branch}</span>
+        </div>
+        <div className="detailItem">
+          <strong>Year:</strong> <span>{data.year}</span>
         </div>
       </div>
-      <div
-        style={{
-          height: 1,
-          width: windowSize[0],
-          backgroundColor: "gray",
-          marginLeft: -30,
-        }}
-      ></div>
     </div>
   );
 };
