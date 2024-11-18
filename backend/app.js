@@ -16,7 +16,10 @@ const adminPass = process.env.ADMIN_PASS;
 // express app
 const app = express();
 
-mongoose.connect(process.env.MONGODB_URL);
+// connect to mongodb
+mongoose
+  .connect(process.env.MONGODB_URL, {})
+  .then(() => console.log("Connected to MongoDB..."));
 
 //middleware
 app.use(express.json());
